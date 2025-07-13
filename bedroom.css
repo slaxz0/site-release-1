@@ -1,0 +1,442 @@
+:root {
+    --room-scale: 0.7; 
+    --window-vertical-offset: 14vh;
+}
+
+.room-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #2d2d3a;
+    background-image: repeating-linear-gradient(to right, #3a3a4a, #3a3a4a calc(3vh * var(--room-scale)), #4a4a5a calc(3vh * var(--room-scale)), #4a4a5a calc(6vh * var(--room-scale)));
+    background-blend-mode: multiply;
+    z-index: 10;
+}
+
+.room-container *,
+.room-container *:before,
+.room-container *:after {
+    position: absolute;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.room-container *:before, 
+.room-container *:after {
+    content: "";
+}
+
+.room-container:after {
+    top: calc(40vh * var(--room-scale) + var(--window-vertical-offset));
+    left: 50%;
+    margin-left: calc(-50vh * var(--room-scale));
+    border-bottom: calc(60vh * var(--room-scale)) solid rgba(155, 139, 189, 0.05);
+    border-left: calc(22.5vh * var(--room-scale)) solid transparent;
+    border-right: calc(22.5vh * var(--room-scale)) solid transparent;
+    height: 0;
+    width: calc(100vh * var(--room-scale));
+}
+
+.room-container .window-light-spill {
+    position: absolute;
+    top: calc(5vh * var(--room-scale) + var(--window-vertical-offset));
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(120vh * var(--room-scale));
+    height: calc(100vh - 5vh * var(--room-scale) - var(--window-vertical-offset));
+    background: rgba(155, 139, 189, 0.15);
+    clip-path: polygon(
+        42% 15%, 
+        58% 15%, 
+        100% 100%, 
+        0% 100%
+    );
+    z-index: 0;
+}
+
+.room-container .window {
+    height: calc(70vh * var(--room-scale));
+    width: calc(58vh * var(--room-scale));
+    top: calc(15vh * var(--room-scale) + var(--window-vertical-offset));
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: #1a1a2e;
+    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.room-container .window:before {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    border: calc(3vh * var(--room-scale)) solid #2d2d3a;
+    box-shadow: inset 0 0 0 calc(1vh * var(--room-scale)) #9b8bbd;
+}
+
+.room-container .window:after {
+    width: calc(100% - 6vh * var(--room-scale));
+    height: calc(3vh * var(--room-scale));
+    border-bottom: calc(2vh * var(--room-scale)) solid #2d2d3a;
+    box-shadow: inset 0 0 0 calc(1vh * var(--room-scale)) #9b8bbd;
+    top: 55%;
+    left: calc(3vh * var(--room-scale));
+    z-index: 5;
+}
+
+.room-container .window-sill {
+    top: calc(85vh * var(--room-scale) + var(--window-vertical-offset));
+    width: calc(66vh * var(--room-scale));
+    height: calc(4vh * var(--room-scale));
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-bottom: calc(3vh * var(--room-scale)) solid #2d2d3a;
+    box-shadow: 
+        inset calc(5vh * var(--room-scale)) 0 0 0 #1a1a2e, 
+        inset calc(-5vh * var(--room-scale)) 0 0 0 #1a1a2e, 
+        inset 0 0 0 calc(1vh * var(--room-scale)) #9b8bbd;
+    z-index: 1;
+}
+
+
+.room-container .stars-background {
+    border-radius: 50%;
+    width: 0.125rem;
+    height: 0.125rem;
+    background: white;
+    left: calc(30vh * var(--room-scale));
+    top: calc(10vh * var(--room-scale));
+    box-shadow: 
+        calc(-20vh * var(--room-scale)) calc(20vh * var(--room-scale)) 0 -1px white, 
+        calc(10vh * var(--room-scale)) calc(10vh * var(--room-scale)) 0 1px rgba(255, 255, 255, 0.4), 
+        calc(11vh * var(--room-scale)) calc(11vh * var(--room-scale)) 0 -1px #fff;
+    z-index: -4;
+    filter: 
+        drop-shadow(0 0 3px white) 
+        drop-shadow(calc(20vh * var(--room-scale)) calc(10vh * var(--room-scale)) 0 white) 
+        drop-shadow(calc(-23vh * var(--room-scale)) calc(-5vh * var(--room-scale)) 0 white) 
+        drop-shadow(calc(-23vh * var(--room-scale)) calc(5vh * var(--room-scale)) 0 white);
+}
+
+.room-container .cloud {
+    width: calc(6vh * var(--room-scale));
+    height: calc(2vh * var(--room-scale));
+    background: currentcolor;
+    color: rgba(155, 139, 189, 0.3);
+    top: calc(23vh * var(--room-scale));
+    left: calc(20vh * var(--room-scale));
+    border-radius: calc(0.5vh * var(--room-scale));
+    box-shadow: 
+        calc(-4vh * var(--room-scale)) calc(-1.5vh * var(--room-scale)) 0 currentcolor, 
+        0 calc(-1.5vh * var(--room-scale)) 0 currentcolor, 
+        calc(2vh * var(--room-scale)) calc(-1.5vh * var(--room-scale)) 0 currentcolor, 
+        calc(-10vh * var(--room-scale)) calc(1.5vh * var(--room-scale)) 0 currentcolor, 
+        calc(-5vh * var(--room-scale)) calc(1.5vh * var(--room-scale)) 0 currentcolor, 
+        0vh calc(1.5vh * var(--room-scale)) 0 currentcolor, 
+        calc(5vh * var(--room-scale)) calc(1.5vh * var(--room-scale)) 0 currentcolor, 
+        calc(-6vh * var(--room-scale)) calc(3vh * var(--room-scale)) 0 currentcolor,
+        calc(-8vh * var(--room-scale)) calc(4.5vh * var(--room-scale)) 0 currentcolor, 
+        calc(-4vh * var(--room-scale)) calc(4.5vh * var(--room-scale)) 0 currentcolor, 
+        calc(-4vh * var(--room-scale)) calc(4.5vh * var(--room-scale)) 0 currentcolor, 
+        calc(-4vh * var(--room-scale)) calc(4.5vh * var(--room-scale)) 0 currentcolor, 
+        calc(3vh * var(--room-scale)) calc(6vh * var(--room-scale)) 0 currentcolor, 
+        calc(1vh * var(--room-scale)) calc(7.5vh * var(--room-scale)) 0 currentcolor;
+    opacity: 0.8;
+    z-index: -1;
+    transform: translate3d(calc(-40vh * var(--room-scale)), calc(10vh * var(--room-scale)), 0);
+    animation: clouds 20s -5s linear infinite;
+}
+
+.room-container .cloud:before,
+.room-container .cloud:after {
+    box-shadow: inherit;
+    background: inherit;
+    width: 100%;
+    height: 100%;
+    transform: translate3d(calc(-30vh * var(--room-scale)), calc(10vh * var(--room-scale)), 0);
+}
+
+.room-container .cloud:after {
+    transform: translate3d(calc(-60vh * var(--room-scale)), calc(-20vh * var(--room-scale)), 0);
+}
+
+@keyframes clouds {
+    100% {
+        transform: translate3d(calc(90vh * var(--room-scale)), 0, 0);
+    }
+}
+
+.room-container .star-accent {
+    top: calc(30vh * var(--room-scale));
+    right: calc(15vh * var(--room-scale));
+    color: #e8e8e8;
+    width: 0;
+    height: 0;
+    border-right: calc(1vh * var(--room-scale)) solid transparent;
+    border-bottom: calc(0.7vh * var(--room-scale)) solid currentColor;
+    border-left: calc(1vh * var(--room-scale)) solid transparent;
+    transform: scale(0.5) rotate(35deg);
+    filter: 
+        drop-shadow(calc(-30vh * var(--room-scale)) calc(40vh * var(--room-scale)) 0 currentColor) 
+        drop-shadow(calc(-15vh * var(--room-scale)) calc(45vh * var(--room-scale)) 2px currentColor);
+    z-index: -3;
+}
+
+.room-container .star-accent:before {
+    border-bottom: calc(0.8vh * var(--room-scale)) solid currentColor;
+    border-left: calc(0.3vh * var(--room-scale)) solid transparent;
+    border-right: calc(0.3vh * var(--room-scale)) solid transparent;
+    height: 0;
+    width: 0;
+    top: calc(-0.4vh * var(--room-scale));
+    left: calc(-0.6vh * var(--room-scale));
+    transform: rotate(-35deg);
+}
+
+.room-container .star-accent:after {
+    top: 0;
+    left: calc(-1vh * var(--room-scale));
+    width: 0;
+    height: 0;
+    border-right: calc(1vh * var(--room-scale)) solid transparent;
+    border-bottom: calc(0.7vh * var(--room-scale)) solid currentColor;
+    border-left: calc(1vh * var(--room-scale)) solid transparent;
+    transform: rotate(-70deg);
+}
+
+.bedroom-moon {
+    width: calc(8vh * var(--room-scale));
+    height: calc(8vh * var(--room-scale));
+    border-radius: 50%;
+    left: calc(36vh * var(--room-scale));
+    top: calc(25vh * var(--room-scale));
+    z-index: -2;
+    overflow: hidden;
+    background-color: #1a1a2e;
+    filter: drop-shadow(0 0 calc(2vh * var(--room-scale)) rgba(232, 232, 232, 0.8)) 
+            drop-shadow(0 0 calc(4vh * var(--room-scale)) rgba(232, 232, 232, 0.4))
+            drop-shadow(0 0 calc(6vh * var(--room-scale)) rgba(232, 232, 232, 0.2));
+}
+
+.bedroom-moon:after {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #e8e8e8;
+    box-shadow: 0 0 calc(1vh * var(--room-scale)) rgba(155, 139, 189, 0.6);
+}
+
+.bedroom-moon:before {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-image: 
+        radial-gradient(circle, #f0f0f0 0%, #f0f0f0 25%, transparent 25%), 
+        radial-gradient(circle, #f0f0f0 0%, #f0f0f0 20%, transparent 20%), 
+        radial-gradient(circle, #f0f0f0 0%, #f0f0f0 25%, transparent 25%), 
+        radial-gradient(circle, #f0f0f0 0%, #f0f0f0 25%, transparent 25%), 
+        radial-gradient(circle, #f0f0f0 0%, #f0f0f0 25%, transparent 25%);
+    background-position: 
+        0 calc(2.5vh * var(--room-scale)), 
+        calc(4vh * var(--room-scale)) calc(4vh * var(--room-scale)), 
+        calc(4.5vh * var(--room-scale)) calc(1vh * var(--room-scale)), 
+        calc(3vh * var(--room-scale)) calc(3vh * var(--room-scale)), 
+        calc(2vh * var(--room-scale)) calc(1vh * var(--room-scale));
+    background-repeat: no-repeat;
+    background-size: 
+        calc(4vh * var(--room-scale)) calc(6vh * var(--room-scale)), 
+        calc(4vh * var(--room-scale)) calc(4vh * var(--room-scale)), 
+        calc(3vh * var(--room-scale)) calc(3vh * var(--room-scale)), 
+        calc(2vh * var(--room-scale)) calc(2vh * var(--room-scale)), 
+        calc(1.5vh * var(--room-scale)) calc(2vh * var(--room-scale));
+    z-index: 2;
+    mix-blend-mode: multiply;
+    opacity: 1;
+}
+
+.room-container .eiffel-tower {
+    color: #1a1a2e;
+    width: calc(20vh * var(--room-scale));
+    height: calc(8vh * var(--room-scale));
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    box-shadow: 0 0 0 calc(1.5vh * var(--room-scale)) currentcolor;
+    border: calc(3vh * var(--room-scale)) solid;
+    border-bottom: none;
+    bottom: calc(8vh * var(--room-scale));
+    right: 0;
+    z-index: -2;
+    filter: drop-shadow(0 0 calc(2vh * var(--room-scale)) rgba(155, 139, 189, 0.3));
+}
+
+.room-container .eiffel-tower:before,
+.room-container .eiffel-tower:after {
+    height: calc(40vh * var(--room-scale));
+    width: calc(10vh * var(--room-scale));
+    bottom: calc(6vh * var(--room-scale));
+    border: calc(2.5vh * var(--room-scale)) solid;
+}
+
+.room-container .eiffel-tower:before {
+    left: calc(-1.75vh * var(--room-scale));
+    border-left: none;
+    border-top: none;
+    border-radius: 0 0 100% 0;
+}
+
+.room-container .eiffel-tower:after {
+    right: calc(-1.75vh * var(--room-scale));
+    border-right: none;
+    border-top: none;
+    border-radius: 0 0 0 100%;
+}
+
+.room-container .platform {
+    width: calc(4vh * var(--room-scale));
+    height: calc(3vh * var(--room-scale));
+    background: currentcolor;
+    top: calc(-40vh * var(--room-scale));
+    left: 0;
+    right: 0;
+    box-shadow: 
+        0 calc(36vh * var(--room-scale)) 0 calc(0.5vh * var(--room-scale)), 
+        calc(4vh * var(--room-scale)) calc(36vh * var(--room-scale)) 0 calc(0.5vh * var(--room-scale)), 
+        calc(6.5vh * var(--room-scale)) calc(36vh * var(--room-scale)) 0 calc(0.5vh * var(--room-scale)), 
+        calc(-4vh * var(--room-scale)) calc(36vh * var(--room-scale)) 0 calc(0.5vh * var(--room-scale)), 
+        calc(-6.5vh * var(--room-scale)) calc(36vh * var(--room-scale)) 0 calc(0.5vh * var(--room-scale)), 
+        0 calc(27vh * var(--room-scale)) 0 0, 
+        calc(-3vh * var(--room-scale)) calc(27vh * var(--room-scale)) 0 0, 
+        calc(3vh * var(--room-scale)) calc(27vh * var(--room-scale)) 0 0;
+}
+
+.room-container .platform:after {
+    width: calc(0.75vh * var(--room-scale));
+    height: calc(2vh * var(--room-scale));
+    background: currentcolor;
+    top: calc(-3vh * var(--room-scale));
+    left: 0;
+    right: 0;
+}
+
+.room-container .roof {
+    width: calc(16vh * var(--room-scale));
+    height: calc(12vh * var(--room-scale));
+    color: #0f0f1a;
+    background: currentcolor;
+    bottom: calc(3vh * var(--room-scale));
+    left: calc(36vh * var(--room-scale));
+    z-index: -1;
+    filter: 
+        drop-shadow(calc(-10vh * var(--room-scale)) calc(5vh * var(--room-scale)) 0 currentcolor) 
+        drop-shadow(calc(-25vh * var(--room-scale)) calc(2vh * var(--room-scale)) 0 currentcolor) 
+        drop-shadow(calc(-12vh * var(--room-scale)) calc(-5vh * var(--room-scale)) 0 #2d2d3a) 
+        drop-shadow(0vh calc(4vh * var(--room-scale)) calc(3vh * var(--room-scale)) rgba(155, 139, 189, 0.6));
+}
+
+.room-container .roof:before {
+    width: calc(1.25vh * var(--room-scale));
+    height: calc(3vh * var(--room-scale));
+    top: calc(-5.5vh * var(--room-scale));
+    left: calc(3vh * var(--room-scale));
+    background: currentcolor;
+    box-shadow: 
+        calc(6vh * var(--room-scale)) calc(0.5vh * var(--room-scale)) 0 0 currentcolor, 
+        calc(8vh * var(--room-scale)) 0 0 0 currentcolor, 
+        calc(2vh * var(--room-scale)) calc(1vh * var(--room-scale)) 0 0 currentcolor;
+}
+
+.room-container .roof:after {
+    border-style: solid;
+    border-color: transparent transparent currentcolor transparent;
+    border-width: 0 calc(2vh * var(--room-scale)) calc(4vh * var(--room-scale)) calc(2vh * var(--room-scale));
+    height: 0;
+    bottom: 100%;
+    width: inherit;
+}
+
+.room-container .bush {
+    width: calc(15vh * var(--room-scale));
+    height: calc(10vh * var(--room-scale));
+    color: #0f0f1a;
+    background: currentcolor;
+    border-radius: calc(50vh * var(--room-scale)) calc(50vh * var(--room-scale)) 0 0;
+    bottom: calc(1vh * var(--room-scale));
+    right: 0;
+    box-shadow: 
+        calc(-6vh * var(--room-scale)) calc(2vh * var(--room-scale)) 0 calc(-2vh * var(--room-scale)) currentcolor, 
+        calc(-12vh * var(--room-scale)) calc(2vh * var(--room-scale)) 0 calc(-2vh * var(--room-scale)) currentcolor, 
+        calc(-18vh * var(--room-scale)) calc(3vh * var(--room-scale)) 0 calc(-3vh * var(--room-scale)) currentcolor, 
+        calc(-22vh * var(--room-scale)) calc(3vh * var(--room-scale)) 0 0vh currentcolor, 
+        calc(-32vh * var(--room-scale)) calc(3vh * var(--room-scale)) 0 calc(2vh * var(--room-scale)) currentcolor;
+    z-index: -1;
+    filter: drop-shadow(0 0 calc(1vh * var(--room-scale)) rgba(155, 139, 189, 0.3));
+}
+
+.room-container .notepad {
+    top: calc(45vh * var(--room-scale) + var(--window-vertical-offset));
+    right: calc(50% - 46vh * var(--room-scale));
+    z-index: 2;
+    width: calc(15vh * var(--room-scale));
+    height: calc(20vh * var(--room-scale));
+    background: #3a3a4a;
+    border-radius: 0;
+    text-align: center;
+    box-shadow: 
+        -2px 4px 0 -2px #1a1a2e, 
+        0px 8px 0 -4px #2d2d3a, 
+        0px 12px 0 -6px #0f0f1a;
+    color: #e8e8e8;
+}
+
+.room-container .notepad:after {
+    width: calc(1vh * var(--room-scale));
+    height: calc(1vh * var(--room-scale));
+    background: currentcolor;
+    border-radius: 50%;
+    top: calc(1vh * var(--room-scale));
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 calc(0.125vh * var(--room-scale)) calc(0.25vh * var(--room-scale)) #4a4a5a;
+}
+
+.room-container .notepad-content {
+    width: 100%;
+    height: 85%;
+    top: 15%;
+    background: inherit;
+    transform-origin: 0 0;
+    box-shadow: inset 0 calc(0.25vh * var(--room-scale)) #4a4a5a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: calc(0.3275vh * var(--room-scale)) dashed #0f0f1a;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: calc(3.5vh * var(--room-scale));
+    padding: calc(1vh * var(--room-scale));
+}
+
+.room-container .notepad-content span {
+    position: static;
+    color: #e8e8e8;
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --room-scale: 0.8;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --room-scale: 0.6;
+    }
+}

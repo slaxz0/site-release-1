@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter #2</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bedroom.css">
+    <link rel="stylesheet" href="passcode.css">
+    <link rel="stylesheet" href="garden.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Allura:wght@400&family=Playfair+Display:wght@400;500&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-moon"></div>
+            <div class="loading-stars"></div>
+            <div class="loading-text">
+                <span>Loading</span>
+                <div class="loading-dots">
+                    <span>.</span>
+                    <span>.</span>
+                    <span>.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="stars-container"></div>
+    <div class="shooting-stars"></div>
+    <div id="tsparticles"></div>
+    <div class="moon"></div>
+    
+    <!-- Moon Phase Slider -->
+    <div class="moon-phase-slider">
+        <div class="phase-control-header">
+            <label for="moonPhaseRange">Moon Phase:</label>
+            <button id="phaseControlActive" class="active-button">Active</button>
+        </div>
+        <input type="range" id="moonPhaseRange" min="0" max="8" step="0.1" value="3">
+        <div class="phase-display">
+            <span id="moonPhaseLabel">Waxing Gibbous</span>
+            <span class="phase-info">Real: Auto</span>
+        </div>
+    </div>
+
+    <!-- Time Control Slider -->
+    <div class="time-control-slider">
+        <div class="time-control-header">
+            <label>Time Control:</label>
+            <button id="timeControlActive" class="active-button">Active</button>
+        </div>
+        <input type="range" id="timeRange" min="0" max="100" step="0.1" value="50">
+        <div class="time-display">
+            <span id="timeLabel">Current: 00:30</span>
+            <span class="time-range-info">18:30 - 07:45</span>
+        </div>
+    </div>
+    
+    <!-- Clear Data Button -->
+    <button id="clearDataBtn" class="clear-data-button">Clear All Data</button>
+    
+    <nav class="navbar">
+        <ul>
+            <li><a href="#letter2" class="nav-link active">Letter #2</a></li>
+            <li><a href="#the-lock" class="nav-link">?</a></li>
+            <li><a href="#the-passcode" class="nav-link">??</a></li>
+            <li><a href="#the-bedroom" class="nav-link">???</a></li>
+            <li><a href="#the-garden" class="nav-link">????</a></li>
+            <li><a href="#mystery-room-1" class="nav-link">?</a></li>
+            <li><a href="#mystery-room-2" class="nav-link">??</a></li>
+            <li><a href="#mystery-room-3" class="nav-link">???</a></li>
+            <li><a href="#mystery-room-4" class="nav-link">????</a></li>
+            <li><a href="#mystery-room-5" class="nav-link">?????</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div id="letter2" class="page active">
+            <div class="letter-box">
+                <div class="letter-content">
+                    <div class="signature">
+                        <div class="sincerely">Sincerely,</div>
+                        <div class="name">Ryan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="the-lock" class="page">
+            <div class="lock-center">
+                <div id="lock" data-dials="5"></div>
+            </div>
+        </div>
+
+        <div id="the-passcode" class="page">
+            <div class="passcode-container">
+                <div class="passcode-lock">
+                    <div class="lock-header">
+                        <div class="constellation-border">
+                            <div class="title-with-stars">
+                                <span class="title-star left">✦</span>
+                                <h2 class="lock-title">Enter the Passcode</h2>
+                                <span class="title-star right">✦</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="passcode-inputs">
+                        <input type="text" class="passcode-letter" maxlength="1" data-index="0">
+                        <input type="text" class="passcode-letter" maxlength="1" data-index="1">
+                        <input type="text" class="passcode-letter" maxlength="1" data-index="2">
+                        <input type="text" class="passcode-letter" maxlength="1" data-index="3">
+                        <input type="text" class="passcode-letter" maxlength="1" data-index="4">
+                        <input type="text" class="passcode-letter" maxlength="1" data-index="5">
+                        <input type="text" class="passcode-letter" maxlength="1" data-index="6">
+                        <input type="text" class="passcode-letter" maxlength="1" data-index="7">
+                    </div>
+                    
+                    <div class="lock-status">
+                        <div class="status-message">Think about letter #4 carefully...</div>
+                        <div class="animated-stars">
+                            <span class="floating-star">✦</span>
+                            <span class="floating-star">✧</span>
+                            <span class="floating-star">✦</span>
+                            <span class="floating-star">✧</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="the-bedroom" class="page">
+            <div class="room-container">
+                <div class="window-light-spill"></div>
+                <div class="window">
+                    <div class="stars-background"></div>
+                    <div class="star-accent"></div>
+                    <div id="bedroom-moon" class="bedroom-moon"></div>
+                    <div class="cloud"></div>
+                    <div class="eiffel-tower">
+                        <div class="platform"></div>
+                    </div>
+                    <div class="roof"></div>
+                    <div class="bush"></div>
+                </div>
+                <div class="window-sill"></div>
+                <div class="notepad">
+                    <div class="notepad-content">
+                        <span>Full Moon</span>
+                        <span>Tonight</span>
+                    </div>
+                </div>
+            </div>  
+        </div>
+
+        <div id="the-garden" class="page">
+            <div class="garden-container">
+                <div class="garden-note">
+                    <div class="note-header">
+                        <h2 class="note-title">The Garden</h2>
+                    </div>
+                    
+                    <div class="note-content">
+                        <p>You need to find a seed before you can use the garden!</p>
+                        <p>You probably haven't found the trinket box yet. ¯\_(ツ)_/¯</p>
+                    </div>
+                    
+                    <div class="note-decoration">
+                        <p class="garden-signature">- Ryan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="mystery-room-1" class="page">
+            <div class="placeholder-content">
+                <div class="cats-container">
+                    <div class="cat-section">
+                        <img src="resources/construction-cat.png" alt="Construction Cat" class="placeholder-cat">
+                        <h3>This page is still being built!</h3>
+                    </div>
+                    <div class="cat-section autumn-cat">
+                        <img src="resources/autumn-cat.png" alt="Autumn Cat" class="placeholder-cat">
+                        <h3 class="autumn-text">Maybe come back in the fall...?</h3>
+                    </div>
+                    <img src="resources/under-construction-tape.png" alt="Under Construction Tape" class="center-tape">
+                </div>
+            </div>
+        </div>
+
+        <div id="mystery-room-2" class="page">
+            <div class="placeholder-content">
+                <div class="cats-container">
+                    <div class="cat-section">
+                        <img src="resources/construction-cat.png" alt="Construction Cat" class="placeholder-cat">
+                        <h3>This page is still being built!</h3>
+                    </div>
+                    <div class="cat-section autumn-cat">
+                        <img src="resources/autumn-cat.png" alt="Autumn Cat" class="placeholder-cat">
+                        <h3 class="autumn-text">Maybe come back in the fall...?</h3>
+                    </div>
+                    <img src="resources/under-construction-tape.png" alt="Under Construction Tape" class="center-tape">
+                </div>
+            </div>
+        </div>
+
+        <div id="mystery-room-3" class="page">
+            <div class="placeholder-content">
+                <div class="cats-container">
+                    <div class="cat-section">
+                        <img src="resources/construction-cat.png" alt="Construction Cat" class="placeholder-cat">
+                        <h3>i think you're cute, lily! :D</h3>
+                    </div>
+                    <div class="cat-section autumn-cat">
+                        <img src="resources/autumn-cat.png" alt="Autumn Cat" class="placeholder-cat">
+                        <h3 class="autumn-text">Oh, and this page still needs to be built...</h3>
+                    </div>
+                    <img src="resources/under-construction-tape.png" alt="Under Construction Tape" class="center-tape">
+                </div>
+            </div>
+        </div>
+
+        <div id="mystery-room-4" class="page">
+            <div class="placeholder-content">
+                <div class="cats-container">
+                    <div class="cat-section">
+                        <img src="resources/construction-cat.png" alt="Construction Cat" class="placeholder-cat">
+                        <h3>This page is still being built!</h3>
+                    </div>
+                    <div class="cat-section autumn-cat">
+                        <img src="resources/autumn-cat.png" alt="Autumn Cat" class="placeholder-cat">
+                        <h3 class="autumn-text">Maybe come back in the fall...?</h3>
+                    </div>
+                    <img src="resources/under-construction-tape.png" alt="Under Construction Tape" class="center-tape">
+                </div>
+            </div>
+        </div>
+
+        <div id="mystery-room-5" class="page">
+            <div class="placeholder-content">
+                <div class="cats-container">
+                    <div class="cat-section">
+                        <img src="resources/construction-cat.png" alt="Construction Cat" class="placeholder-cat">
+                        <h3>This page is actually done, but if I showed you it, then that would spoil the surprise!</h3>
+                    </div>
+                    <div class="cat-section autumn-cat">
+                        <img src="resources/autumn-cat.png" alt="Autumn Cat" class="placeholder-cat">
+                        <h3 class="autumn-text">Maybe come back in winter...?</h3>
+                    </div>
+                    <img src="resources/under-construction-tape.png" alt="Under Construction Tape" class="center-tape">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="node_modules/tsparticles/tsparticles.bundle.min.js"></script>
+    <script src="node_modules/suncalc/suncalc.js"></script>
+    <script src="constants.js"></script>
+    <script src="moon.js"></script>
+    <script src="constellations.js"></script>
+    <script src="config.js"></script>
+    <script src="storage.js"></script>
+    <script src="interactions.js"></script>
+    <script src="lock.js"></script>
+    <script src="passcode.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
