@@ -1,4 +1,4 @@
-let devMode = true;
+let devMode = false;
 
 function toggleDevMode() {
     devMode = !devMode;
