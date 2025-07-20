@@ -80,6 +80,7 @@
         <div id="letter2" class="page active">
             <div class="letter-box">
                 <div class="letter-content">
+                    <div class="letter-header">Letter #2</div>
                     <div class="signature">
                         <div class="sincerely">Sincerely,</div>
                         <div class="name">Ryan</div>
@@ -91,6 +92,119 @@
         <div id="the-lock" class="page">
             <div class="lock-center">
                 <div id="lock" data-dials="5"></div>
+            </div>
+            <div class="lock-letter-container" style="display: none;">
+                <div class="letter-box">
+                    <div class="letter-content">
+                        <div class="letter-header">Letter #3</div>
+                        <div class="signature">
+                            <div class="sincerely">Sincerely,</div>
+                            <div class="name">Ryan</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mystery Countdown Timers -->
+                <div class="mystery-timers">
+                    <div class="timer-container" id="timer1">
+                        <div class="timer-header">
+                            <div class="timer-title">Secret Surprise #1</div>
+                            <div class="timer-stars">
+                                <span class="timer-star">✦</span>
+                                <span class="timer-star">✧</span>
+                                <span class="timer-star">✦</span>
+                            </div>
+                        </div>
+                        <div class="timer-display">
+                            <div class="time-segment">
+                                <span class="time-value" id="timer1-days">00</span>
+                                <span class="time-label">Days</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-segment">
+                                <span class="time-value" id="timer1-hours">00</span>
+                                <span class="time-label">Hours</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-segment">
+                                <span class="time-value" id="timer1-minutes">00</span>
+                                <span class="time-label">Minutes</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-segment">
+                                <span class="time-value" id="timer1-seconds">00</span>
+                                <span class="time-label">Seconds</span>
+                            </div>
+                        </div>
+                        <div class="timer-message" id="timer1-message">Keeping track of time...</div>
+                    </div>
+
+                    <div class="timer-container" id="timer2">
+                        <div class="timer-header">
+                            <div class="timer-title">Secret Surprise #2</div>
+                            <div class="timer-stars">
+                                <span class="timer-star">✧</span>
+                                <span class="timer-star">✦</span>
+                                <span class="timer-star">✧</span>
+                            </div>
+                        </div>
+                        <div class="timer-display">
+                            <div class="time-segment">
+                                <span class="time-value" id="timer2-days">00</span>
+                                <span class="time-label">Days</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-segment">
+                                <span class="time-value" id="timer2-hours">00</span>
+                                <span class="time-label">Hours</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-segment">
+                                <span class="time-value" id="timer2-minutes">00</span>
+                                <span class="time-label">Minutes</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-segment">
+                                <span class="time-value" id="timer2-seconds">00</span>
+                                <span class="time-label">Seconds</span>
+                            </div>
+                        </div>
+                        <div class="timer-message" id="timer2-message">Stars in my eyes...</div>
+                    </div>
+
+                    <div class="timer-container" id="timer3">
+                        <div class="timer-header">
+                            <div class="timer-title">Secret Surprise #3</div>
+                            <div class="timer-stars">
+                                <span class="timer-star">✦</span>
+                                <span class="timer-star">✦</span>
+                                <span class="timer-star">✦</span>
+                            </div>
+                        </div>
+                        <div class="timer-display">
+                            <div class="time-segment">
+                                <span class="time-value" id="timer3-days">00</span>
+                                <span class="time-label">Days</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-segment">
+                                <span class="time-value" id="timer3-hours">00</span>
+                                <span class="time-label">Hours</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-segment">
+                                <span class="time-value" id="timer3-minutes">00</span>
+                                <span class="time-label">Minutes</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-segment">
+                                <span class="time-value" id="timer3-seconds">00</span>
+                                <span class="time-label">Seconds</span>
+                            </div>
+                        </div>
+                        <div class="timer-message" id="timer3-message">The sun is up...</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -256,8 +370,8 @@
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.8.1/tsparticles.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js"></script>
+    <script src="node_modules/tsparticles/tsparticles.bundle.min.js"></script>
+    <script src="node_modules/suncalc/suncalc.js"></script>
     <script src="constants.js"></script>
     <script src="moon.js"></script>
     <script src="constellations.js"></script>
@@ -266,6 +380,7 @@
     <script src="interactions.js"></script>
     <script src="lock.js"></script>
     <script src="passcode.js"></script>
+    <script src="timers.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

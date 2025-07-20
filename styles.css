@@ -234,6 +234,15 @@ main {
     z-index: 1;
 }
 
+.letter-header {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #6b5b95;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
 .letter-content p {
     font-size: 1.4rem;
     line-height: 1.8;
@@ -714,6 +723,12 @@ main {
     justify-content: center;
 }
 
+.lock-letter-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .myLock {
     display: inline-block;
     text-align: center;
@@ -806,7 +821,7 @@ main {
 .myLock .dial ol {
     display: inline;
     position: relative;
-    top: -25px;
+    top: -60px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -912,6 +927,217 @@ main {
     background: linear-gradient(135deg, #7db87d 0%, #a0d4a0 30%, #c4f0c4 50%, #a0d4a0 70%, #7db87d 100%);
     border: 2px solid rgba(125, 184, 125, 0.6);
     pointer-events: none;
+}
+
+.myLock.exploding {
+    animation: lock-shake-explode 5s ease-out forwards;
+    position: relative;
+}
+
+@keyframes lock-shake-explode {
+    /* Gentle jitter for first 2 seconds */
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 2px 20px rgba(107, 91, 149, 0.4);
+    }
+    2% { transform: translate(0.5px, 0.3px); }
+    4% { transform: translate(-0.3px, 0.5px); }
+    6% { transform: translate(0.4px, -0.2px); }
+    8% { transform: translate(-0.2px, -0.4px); }
+    10% { transform: translate(0.3px, 0.2px); }
+    12% { transform: translate(-0.5px, 0.1px); }
+    14% { transform: translate(0.2px, -0.3px); }
+    16% { transform: translate(-0.1px, 0.4px); }
+    18% { transform: translate(0.4px, -0.1px); }
+    20% { transform: translate(-0.3px, 0.3px); }
+    22% { transform: translate(0.1px, -0.4px); }
+    24% { transform: translate(-0.4px, 0.2px); }
+    26% { transform: translate(0.5px, -0.2px); }
+    28% { transform: translate(-0.2px, 0.5px); }
+    30% { transform: translate(0.3px, -0.3px); }
+    32% { transform: translate(-0.1px, 0.1px); }
+    34% { transform: translate(0.2px, -0.5px); }
+    36% { transform: translate(-0.5px, 0.4px); }
+    38% { transform: translate(0.4px, -0.1px); }
+    
+    /* More violent jitter at 2 seconds (40% through 5s animation) */
+    40% {
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 2px 20px rgba(107, 91, 149, 0.6),
+            0 0 30px rgba(155, 139, 189, 0.4);
+    }
+    41% { transform: translate(1px, 0.8px); }
+    42% { transform: translate(-0.8px, 1px); }
+    43% { transform: translate(0.9px, -0.7px); }
+    44% { transform: translate(-0.7px, -0.9px); }
+    45% { transform: translate(0.8px, 0.6px); }
+    46% { transform: translate(-1px, 0.5px); }
+    47% { transform: translate(0.6px, -0.8px); }
+    48% { transform: translate(-0.5px, 0.9px); }
+    49% { transform: translate(0.9px, -0.6px); }
+    50% { transform: translate(-0.8px, 0.8px); }
+    51% { transform: translate(0.7px, -0.9px); }
+    52% { transform: translate(-0.9px, 0.7px); }
+    53% { transform: translate(1px, -0.5px); }
+    54% { transform: translate(-0.6px, 1px); }
+    55% { transform: translate(0.8px, -0.8px); }
+    56% { transform: translate(-0.7px, 0.6px); }
+    57% { transform: translate(0.5px, -1px); }
+    58% { transform: translate(-1px, 0.9px); }
+    59% { transform: translate(0.9px, -0.7px); }
+    
+    /* Very violent jitter at 3 seconds (60% through 5s animation) */
+    60% {
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 2px 20px rgba(107, 91, 149, 0.8),
+            0 0 50px rgba(155, 139, 189, 0.6);
+    }
+    61% { transform: translate(2px, 1.5px); }
+    62% { transform: translate(-1.5px, 2px); }
+    63% { transform: translate(1.8px, -1.3px); }
+    64% { transform: translate(-1.3px, -1.8px); }
+    65% { transform: translate(1.6px, 1.2px); }
+    66% { transform: translate(-2px, 1px); }
+    67% { transform: translate(1.2px, -1.6px); }
+    68% { transform: translate(-1px, 1.8px); }
+    69% { transform: translate(1.8px, -1.2px); }
+    70% { transform: translate(-1.6px, 1.6px); }
+    71% { transform: translate(1.4px, -1.8px); }
+    72% { transform: translate(-1.8px, 1.4px); }
+    73% { transform: translate(2px, -1px); }
+    74% { transform: translate(-1.2px, 2px); }
+    75% { transform: translate(1.6px, -1.6px); }
+    76% { transform: translate(-1.4px, 1.2px); }
+    77% { transform: translate(1px, -2px); }
+    78% { transform: translate(-2px, 1.8px); }
+    79% { transform: translate(1.8px, -1.4px); }
+    
+    /* Final explosion at 4 seconds (80% through 5s animation) */
+    80% {
+        transform: translate(0, 0);
+        opacity: 1;
+        box-shadow: 
+            0 0 100px rgba(255, 255, 255, 1),
+            0 0 200px rgba(107, 91, 149, 1),
+            0 0 300px rgba(155, 139, 189, 0.8);
+    }
+    100% {
+        transform: translate(0, 0);
+        opacity: 0;
+        box-shadow: 
+            0 0 200px rgba(255, 255, 255, 1),
+            0 0 400px rgba(107, 91, 149, 1),
+            0 0 600px rgba(155, 139, 189, 1);
+    }
+}
+
+.myLock.exploding .dial {
+    animation: dial-fragment 0.5s ease-out forwards;
+    animation-delay: 4s; /* Start after 4 seconds of shaking */
+}
+
+@keyframes dial-fragment {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+        box-shadow: 
+            0 0 20px rgba(155, 139, 189, 0.8),
+            0 0 40px rgba(107, 91, 149, 0.6);
+    }
+    100% {
+        transform: translate(var(--fragment-x, 0), var(--fragment-y, 0)) rotate(var(--fragment-rotate, 0deg)) scale(0.1);
+        opacity: 0;
+        box-shadow: 
+            0 0 50px rgba(155, 139, 189, 1),
+            0 0 100px rgba(107, 91, 149, 0.8);
+    }
+}
+
+.myLock.exploding .dial:nth-child(1) {
+    --fragment-x: -300px;
+    --fragment-y: -200px;
+    --fragment-rotate: -360deg;
+}
+
+.myLock.exploding .dial:nth-child(2) {
+    --fragment-x: -150px;
+    --fragment-y: -300px;
+    --fragment-rotate: -180deg;
+}
+
+.myLock.exploding .dial:nth-child(3) {
+    --fragment-x: 0px;
+    --fragment-y: -350px;
+    --fragment-rotate: 0deg;
+}
+
+.myLock.exploding .dial:nth-child(4) {
+    --fragment-x: 150px;
+    --fragment-y: -300px;
+    --fragment-rotate: 180deg;
+}
+
+.myLock.exploding .dial:nth-child(5) {
+    --fragment-x: 300px;
+    --fragment-y: -200px;
+    --fragment-rotate: 360deg;
+}
+
+/* Purple starry particle effects */
+.myLock.exploding::before,
+.myLock.exploding::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    animation: star-particles 1s ease-out forwards;
+    animation-delay: 4s;
+}
+
+.myLock.exploding::before {
+    background: 
+        radial-gradient(2px 2px at 20px 30px, rgba(155, 139, 189, 1), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(107, 91, 149, 1), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(155, 139, 189, 1), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(107, 91, 149, 1), transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(155, 139, 189, 1), transparent);
+    background-repeat: no-repeat;
+    background-size: 200px 100px;
+}
+
+.myLock.exploding::after {
+    background: 
+        radial-gradient(1px 1px at 60px 20px, rgba(155, 139, 189, 1), transparent),
+        radial-gradient(2px 2px at 80px 60px, rgba(107, 91, 149, 1), transparent),
+        radial-gradient(1px 1px at 110px 10px, rgba(155, 139, 189, 1), transparent),
+        radial-gradient(1px 1px at 140px 50px, rgba(107, 91, 149, 1), transparent),
+        radial-gradient(2px 2px at 170px 70px, rgba(155, 139, 189, 1), transparent);
+    background-repeat: no-repeat;
+    background-size: 200px 100px;
+    animation-delay: 4.2s;
+}
+
+@keyframes star-particles {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(2) rotate(180deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(4) rotate(360deg);
+    }
 }
 
 .nav-link {
@@ -1060,6 +1286,286 @@ main {
     30% { 
         transform: translateY(-10px);
         opacity: 1;
+    }
+}
+
+/* Mystery Countdown Timers */
+.mystery-timers {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin: 4rem auto 2rem auto;
+    max-width: 1000px;
+    padding: 0 2rem;
+}
+
+.timer-container {
+    background: linear-gradient(135deg, 
+        rgba(26, 26, 46, 0.95) 0%, 
+        rgba(45, 45, 58, 0.9) 30%, 
+        rgba(107, 91, 149, 0.1) 70%, 
+        rgba(155, 139, 189, 0.05) 100%);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(155, 139, 189, 0.3);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 60px rgba(155, 139, 189, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.timer-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(155, 139, 189, 0.02) 0%, transparent 70%);
+    animation: timer-rotate 25s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes timer-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.timer-container:hover {
+    border-color: rgba(155, 139, 189, 0.5);
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 80px rgba(155, 139, 189, 0.2);
+    transform: translateY(-3px);
+}
+
+.timer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.timer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #e8e8e8;
+    text-shadow: 0 0 15px rgba(155, 139, 189, 0.4);
+    background: linear-gradient(45deg, #e8e8e8, #9b8bbd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.timer-stars {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.timer-star {
+    color: rgba(155, 139, 189, 0.8);
+    font-size: 1.2rem;
+    animation: timer-star-pulse 3s ease-in-out infinite;
+}
+
+.timer-star:nth-child(1) { animation-delay: 0s; }
+.timer-star:nth-child(2) { animation-delay: 1s; }
+.timer-star:nth-child(3) { animation-delay: 2s; }
+
+@keyframes timer-star-pulse {
+    0%, 100% { 
+        opacity: 0.6; 
+        transform: scale(1);
+        text-shadow: 0 0 8px rgba(155, 139, 189, 0.3);
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.3);
+        text-shadow: 0 0 20px rgba(155, 139, 189, 0.8);
+    }
+}
+
+.timer-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+}
+
+.time-segment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, 
+        rgba(26, 26, 46, 0.8) 0%, 
+        rgba(45, 45, 58, 0.6) 50%, 
+        rgba(26, 26, 46, 0.8) 100%);
+    border: 2px solid rgba(155, 139, 189, 0.3);
+    border-radius: 15px;
+    padding: 1rem 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        inset 0 2px 10px rgba(0, 0, 0, 0.3),
+        0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    min-width: 80px;
+}
+
+.time-segment:hover {
+    border-color: rgba(155, 139, 189, 0.6);
+    box-shadow: 
+        inset 0 2px 10px rgba(0, 0, 0, 0.3),
+        0 4px 20px rgba(0, 0, 0, 0.2),
+        0 0 25px rgba(155, 139, 189, 0.4);
+    transform: translateY(-2px);
+}
+
+.time-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #e8e8e8;
+    text-shadow: 
+        0 0 10px rgba(155, 139, 189, 0.6),
+        0 1px 0 rgba(255, 255, 255, 0.1);
+    margin-bottom: 0.5rem;
+    animation: timer-number-glow 4s ease-in-out infinite;
+}
+
+@keyframes timer-number-glow {
+    0%, 100% { 
+        text-shadow: 0 0 10px rgba(155, 139, 189, 0.6);
+    }
+    50% { 
+        text-shadow: 0 0 20px rgba(155, 139, 189, 0.9);
+    }
+}
+
+.time-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: rgba(155, 139, 189, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.time-separator {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: rgba(155, 139, 189, 0.6);
+    animation: timer-separator-blink 2s ease-in-out infinite;
+}
+
+@keyframes timer-separator-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+.timer-message {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: rgba(232, 232, 232, 0.8);
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    margin-top: 1rem;
+    text-shadow: 0 0 8px rgba(155, 139, 189, 0.3);
+}
+
+.timer-container.expired {
+    border-color: rgba(125, 184, 125, 0.5);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 60px rgba(125, 184, 125, 0.3);
+}
+
+.timer-container.expired .time-segment {
+    border-color: rgba(125, 184, 125, 0.4);
+    background: linear-gradient(135deg, 
+        rgba(125, 184, 125, 0.2) 0%, 
+        rgba(160, 212, 160, 0.1) 50%, 
+        rgba(125, 184, 125, 0.2) 100%);
+}
+
+.timer-container.expired .time-value {
+    color: rgba(125, 184, 125, 0.9);
+    text-shadow: 0 0 15px rgba(125, 184, 125, 0.7);
+}
+
+.timer-container.expired .timer-message {
+    color: rgba(125, 184, 125, 0.9);
+    text-shadow: 0 0 10px rgba(125, 184, 125, 0.5);
+}
+
+@media (max-width: 768px) {
+    .mystery-timers {
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .timer-container {
+        padding: 2rem;
+    }
+    
+    .timer-title {
+        font-size: 1.5rem;
+    }
+    
+    .timer-display {
+        gap: 0.5rem;
+    }
+    
+    .time-segment {
+        padding: 0.8rem 1rem;
+        min-width: 60px;
+    }
+    
+    .time-value {
+        font-size: 2rem;
+    }
+    
+    .timer-message {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timer-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .timer-display {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .time-segment {
+        flex-direction: row;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        min-width: auto;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .time-value {
+        margin-bottom: 0;
     }
 }
 

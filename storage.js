@@ -23,14 +23,25 @@ class SiteStorage {
                 unlockedAt: null
             },
             combinations: {
-                lockCombination: '12345',
-                passcode: 'ILUVULIL'
+                lockCombination: '123456',
+                passcode: 'ILUVULIL22'
             },
             letterContent: [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                "Hi there little princess,",
+                "I had such an amazing time with you today. I don't think there are enough words out there to express how happy being with you makes me feel. All of our dates are so magical!! BUT I HATE HAVING TO LEAVE AAAAAAAAA",
+                "It's okay though. I'll come back from South Korea to visit you as soon as I can. Please don't worry about the flight time or price! Looking forward to that is the only thing that'll help me make it through my two weeks there... And honestly, I could never put a price on my time with you. Every second is a priceless, treasured memory to me.",
+                "By the way, I thought the timing you chose for our first kiss was really romantic. I've been trying to hold back for such a long time, but I truly couldn't wait any longer. I'm relieved now. You know, I had a plan for it on Coney Island, but it's kinda nice not worrying about plans and letting things happen naturally sometimes. Your lips felt nice. You looked really pretty too! The entire date, I couldn't stop thinking about how you were glowing. I hope it didn't feel like I was giving you too much affection. I'm really bad at hiding my feelings these days, and they're especially intense when I'm with you",
+                "I can never stop admiring you.",
+                "Even after four years, I've never known anyone even close to being as pretty as you are.",
+                "I really do feel lucky I have the privilege to take you out, to hold your hand, and to kiss you. It feels so dreamlike and surreal sometimes. I get excited every time I remember we're together, out on a date, in New York City of all places. I couldn't imagine anyone I'd rather be with. I really can't, and I've never been able to. Everything feels worth it when I'm with you .",
+                "There's so much more that I want to say to you, but I think it'll be more special if I wait until our next date. So you'll have to hold on until then :)",
+                "This website is something I've been working on for a while. I have a lot of surprises in store for the future. I'll reveal the next one on our next date hehe. Sorry for teasing you like that, but it'll be more exciting that way.",
+                "Thank you for letting me take you out on another date. I've been wishing for a chance like this for a long, long time. I won't let it go."
+            ],
+            letterThreeContent: [
+                "Lorem ipsum letter three content.",
+                "This is placeholder text for Letter #3.",
+                "More placeholder content here."
             ],
             nextDate: "7/20/2025"
         };
@@ -134,7 +145,8 @@ class SiteStorage {
     async updateLockState(isUnlocked) {
         if (this.data.lockState.isUnlocked !== isUnlocked) {
             this.data.lockState.isUnlocked = isUnlocked;
-            if (isUnlocked) {
+            if (isUnlocked && !this.data.lockState.unlockedAt) {
+                // Only set unlockedAt if it hasn't been set before
                 this.data.lockState.unlockedAt = new Date().toISOString();
             }
             await this.saveToCloud();
@@ -156,6 +168,14 @@ class SiteStorage {
     async updateLetterContent(paragraphs) {
         if (JSON.stringify(this.data.letterContent) !== JSON.stringify(paragraphs)) {
             this.data.letterContent = paragraphs;
+            await this.saveToCloud();
+            this.applyState();
+        }
+    }
+
+    async updateLetterThreeContent(paragraphs) {
+        if (JSON.stringify(this.data.letterThreeContent) !== JSON.stringify(paragraphs)) {
+            this.data.letterThreeContent = paragraphs;
             await this.saveToCloud();
             this.applyState();
         }
@@ -186,14 +206,25 @@ class SiteStorage {
                 unlockedAt: null
             },
             combinations: {
-                lockCombination: '12345',
-                passcode: 'ILUVULIL'
+                lockCombination: '123456',
+                passcode: 'ILUVULIL22'
             },
             letterContent: [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                "Hi there little princess,",
+                "I had such an amazing time with you today. I don't think there are enough words out there to express how happy being with you makes me feel. All of our dates are so magical!! BUT I HATE HAVING TO LEAVE AAAAAAAAA",
+                "It's okay though. I'll come back from South Korea to visit you as soon as I can. Please don't worry about the flight time or price! Looking forward to that is the only thing that'll help me make it through my two weeks there... And honestly, I could never put a price on my time with you. Every second is a priceless, treasured memory to me.",
+                "By the way, I thought the timing you chose for our first kiss was really romantic. I've been trying to hold back for such a long time, but I truly couldn't wait any longer. I'm relieved now. You know, I had a plan for it on Coney Island, but it's kinda nice not worrying about plans and letting things happen naturally sometimes. Your lips felt nice. You looked really pretty too! The entire date, I couldn't stop thinking about how you were glowing. I hope it didn't feel like I was giving you too much affection. I'm really bad at hiding my feelings these days, and they're especially intense when I'm with you",
+                "I can never stop admiring you.",
+                "Even after four years, I've never known anyone even close to being as pretty as you are.",
+                "I really do feel lucky I have the privilege to take you out, to hold your hand, and to kiss you. It feels so dreamlike and surreal sometimes. I get excited every time I remember we're together, out on a date, in New York City of all places. I couldn't imagine anyone I'd rather be with. I really can't, and I've never been able to. Everything feels worth it when I'm with you .",
+                "There's so much more that I want to say to you, but I think it'll be more special if I wait until our next date. So you'll have to hold on until then :)",
+                "This website is something I've been working on for a while. I have a lot of surprises in store for the future. I'll reveal the next one on our next date hehe. Sorry for teasing you like that, but it'll be more exciting that way.",
+                "Thank you for letting me take you out on another date. I've been wishing for a chance like this for a long, long time. I won't let it go."
+            ],
+            letterThreeContent: [
+                "Lorem ipsum letter three content.",
+                "This is placeholder text for Letter #3.",
+                "More placeholder content here."
             ],
             nextDate: "7/20/2025"
         };
@@ -211,12 +242,8 @@ class SiteStorage {
             }
         });
 
-        if (this.data.lockState.isUnlocked) {
-            const lockElement = document.getElementById('lock');
-            if (lockElement) {
-                lockElement.classList.add('unlocked');
-            }
-        }
+        // Don't auto-show the letter even if unlocked in JSON
+        // Still keep the unlocked state in JSON for other purposes
 
         if (this.data.passcodeState.isUnlocked) {
             if (window.passcodeLock) {
@@ -225,17 +252,46 @@ class SiteStorage {
         }
 
         this.applyLetterContent();
+        this.applyLetterThreeContent();
         this.applyNotepadContent();
         this.updatePageTitle();
     }
 
     applyLetterContent() {
-        const letterContent = document.querySelector('.letter-content');
+        const letterContent = document.querySelector('#letter2 .letter-content');
         if (letterContent && this.data.letterContent) {
+            const header = letterContent.querySelector('.letter-header');
             const signature = letterContent.querySelector('.signature');
             letterContent.innerHTML = '';
             
+            if (header) {
+                letterContent.appendChild(header);
+            }
+            
             this.data.letterContent.forEach(paragraph => {
+                const p = document.createElement('p');
+                p.textContent = paragraph;
+                letterContent.appendChild(p);
+            });
+            
+            if (signature) {
+                letterContent.appendChild(signature);
+            }
+        }
+    }
+
+    applyLetterThreeContent() {
+        const letterContent = document.querySelector('#the-lock .letter-content');
+        if (letterContent && this.data.letterThreeContent) {
+            const header = letterContent.querySelector('.letter-header');
+            const signature = letterContent.querySelector('.signature');
+            letterContent.innerHTML = '';
+            
+            if (header) {
+                letterContent.appendChild(header);
+            }
+            
+            this.data.letterThreeContent.forEach(paragraph => {
                 const p = document.createElement('p');
                 p.textContent = paragraph;
                 letterContent.appendChild(p);
@@ -311,12 +367,20 @@ class SiteStorage {
         return this.data.letterContent || [];
     }
 
+    getLetterThreeContent() {
+        return this.data.letterThreeContent || [];
+    }
+
     getLockCombination() {
         return this.data.combinations?.lockCombination || '12345';
     }
 
     getPasscode() {
         return this.data.combinations?.passcode || 'ILUVULIL';
+    }
+
+    getLockState() {
+        return this.data.lockState || { isUnlocked: false, unlockedAt: null };
     }
 
     getPasscodeState() {
