@@ -73,6 +73,7 @@ class MysteryTimers {
             // Timer has expired
             container.classList.add('expired');
             
+            // Replace timer display with audio player if specified
             if (timer.audioFile && !container.dataset.audioPlayerCreated) {
                 this.createAudioPlayer(timer.id, timer.audioFile, timer.expiredMessage);
                 container.dataset.audioPlayerCreated = 'true';
@@ -130,6 +131,9 @@ class MysteryTimers {
                     </audio>
                     
                     <div class="audio-controls">
+                        <button class="loop-btn" id="${timerId}-loop-btn">
+                            <div class="loop-arrow"></div>
+                        </button>
                         <button class="play-pause-btn" id="${timerId}-play-pause">
                             <span class="play-icon">▶</span>
                             <span class="pause-icon" style="display: none;">⏸</span>
@@ -163,6 +167,7 @@ class MysteryTimers {
             messageEl.style.display = 'none';
         }
         
+        // Initialize audio player functionality
         this.initializeAudioPlayer(timerId);
     }
     
@@ -177,6 +182,7 @@ class MysteryTimers {
         const durationEl = document.getElementById(`${timerId}-duration`);
         const volumeBtn = document.getElementById(`${timerId}-volume-btn`);
         const volumeSlider = document.getElementById(`${timerId}-volume`);
+        const loopBtn = document.getElementById(`${timerId}-loop-btn`);
         
         if (!audio) return;
         
@@ -283,6 +289,16 @@ class MysteryTimers {
                 volumeSlider.value = (audio.volume * 100);
             }
             this.updateVolumeIcon(volumeBtn, audio.volume);
+        });
+        
+        // Loop button functionality
+        loopBtn.addEventListener('click', () => {
+            audio.loop = !audio.loop;
+            if (audio.loop) {
+                loopBtn.classList.add('active');
+            } else {
+                loopBtn.classList.remove('active');
+            }
         });
         
         // Audio ended

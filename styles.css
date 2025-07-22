@@ -1724,6 +1724,113 @@ main {
     box-shadow: 0 0 8px rgba(155, 139, 189, 0.4);
 }
 
+/* Loop Button Styles */
+.loop-btn {
+    background: linear-gradient(135deg, 
+        rgba(155, 139, 189, 0.2) 0%, 
+        rgba(107, 91, 149, 0.1) 100%);
+    border: 2px solid rgba(155, 139, 189, 0.3);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: rgba(155, 139, 189, 0.7);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.loop-btn:hover {
+    background: linear-gradient(135deg, 
+        rgba(155, 139, 189, 0.3) 0%, 
+        rgba(107, 91, 149, 0.2) 100%);
+    color: rgba(155, 139, 189, 0.9);
+    border-color: rgba(155, 139, 189, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 15px rgba(155, 139, 189, 0.3);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.loop-btn.active {
+    background: linear-gradient(135deg, 
+        rgba(155, 139, 189, 0.4) 0%, 
+        rgba(107, 91, 149, 0.3) 100%);
+    color: rgba(155, 139, 189, 1);
+    border-color: rgba(155, 139, 189, 0.6);
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.3), 
+        0 0 20px rgba(155, 139, 189, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 10px rgba(155, 139, 189, 0.6);
+}
+
+.loop-btn.active::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, 
+        rgba(155, 139, 189, 0.25), 
+        rgba(107, 91, 149, 0.3), 
+        rgba(155, 139, 189, 0.25));
+    z-index: -1;
+    animation: loop-glow 2s ease-in-out infinite;
+}
+
+.loop-btn.active .loop-arrow {
+    /* Removed rotation animation */
+}
+
+@keyframes loop-glow {
+    0%, 100% {
+        opacity: 0.35;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.08);
+    }
+}
+
+@keyframes arrow-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Loop Arrow Styling */
+.loop-arrow {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+    
+    /* Use exact site purple color with mask */
+    background-color: rgba(155, 139, 189, 0.7);
+    mask: url('resources/arrow.png') no-repeat center;
+    mask-size: contain;
+    -webkit-mask: url('resources/arrow.png') no-repeat center;
+    -webkit-mask-size: contain;
+}
+
+.loop-btn:hover .loop-arrow {
+    background-color: rgba(155, 139, 189, 0.9);
+    transform: scale(1.1);
+}
+
+.loop-btn.active .loop-arrow {
+    background-color: rgba(155, 139, 189, 1);
+    filter: drop-shadow(0 0 8px rgba(155, 139, 189, 0.6));
+}
+
 @media (max-width: 768px) {
     .mystery-timers {
         gap: 2rem;
@@ -1777,6 +1884,16 @@ main {
     
     .volume-slider {
         width: 60px;
+    }
+    
+    .loop-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .loop-arrow {
+        width: 20px;
+        height: 20px;
     }
 }
 
