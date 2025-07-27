@@ -1516,7 +1516,8 @@ main {
     flex-direction: column;
     gap: 2rem;
     padding: 2rem;
-    min-height: 200px;
+    height: 200px;
+    width: 600px;
     background: linear-gradient(135deg, 
         rgba(155, 139, 189, 0.15) 0%, 
         rgba(107, 91, 149, 0.08) 50%, 
@@ -1865,7 +1866,9 @@ main {
     .audio-player {
         padding: 1.5rem;
         gap: 1.5rem;
-        min-height: 160px;
+        height: 160px;
+        width: 100%;
+        max-width: 600px;
     }
     
     .audio-title {

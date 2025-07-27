@@ -12,7 +12,8 @@ class MysteryTimers {
                 id: 'timer2', 
                 offsetHours: 24 * 6, // 6 days
                 message: 'Stars in my eyes...',
-                expiredMessage: '🌟 Second mystery revealed! 🌟'
+                expiredMessage: 'You look so pretty...',
+                audioFile: 'resources/delilah-22.wav'
             },
             {
                 id: 'timer3',
