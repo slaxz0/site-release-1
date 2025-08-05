@@ -19,7 +19,8 @@ class MysteryTimers {
                 id: 'timer3',
                 offsetHours: 24 * 11, // 11 days  
                 message: 'The sun is up...',
-                expiredMessage: '💫 Final mystery unveiled! 💫'
+                expiredMessage: 'It\'s alright, little darling',
+                audioFile: 'resources/sun-22.wav'
             }
         ];
         
